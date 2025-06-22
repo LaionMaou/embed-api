@@ -1,4 +1,4 @@
-# embed-api
+# embed-api 
 
 ```ts
 import { Client } from '@widgetbot/embed-api'
