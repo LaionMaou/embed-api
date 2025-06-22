@@ -1,11 +1,12 @@
-import { Server } from '@widgetbot/embed-api';
+const http = require('http');
 
-const api = new Server({ id: 'test' });
+const port = process.env.PORT || 3000;
 
-api.on('sendMessage', (message) => {
-  console.log('Mensaje recibido:', message);
+const server = http.createServer((req, res) => {
+  res.writeHead(200);
+  res.end('Embed API server corriendo!');
 });
 
-api.emit('message', { id: 'msg1', content: 'Servidor listo!' });
-
-console.log('Servidor embed-api corriendo...');
+server.listen(port, '0.0.0.0', () => {
+  console.log(`Servidor escuchando en puerto ${port}`);
+});
